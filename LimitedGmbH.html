@@ -1,0 +1,253 @@
+<!DOCTYPE html>   
+<html lang="de">    
+<head>                      
+    <meta charset="UTF-8">      
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">          
+
+<title>Limited GmbH - Logistik</title> 
+    <link rel="icon" type="image/png" href="logo-klein.png">
+
+    <style>                             
+        :root {                    
+            --primary-color: #18283F;
+            --secondary-color: #ffcc00;
+            --bg-color: #f4f4f9;
+            --text-color: #333;
+        }
+
+        body {         
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;  
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        main {
+            flex: 1;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            font-size: 18.5px;
+        }
+
+        .hero {
+            max-width: 800px;
+            margin-bottom: 2rem;
+        }
+
+        .tracking-box {             
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 500px;
+            margin-bottom: 3rem;
+        }
+
+        .tracking-box input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .tracking-box button {
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .tracking-box button:hover {
+            background-color: #e6b800;
+        }
+
+        .chat-toggle-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 15px 20px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            z-index: 1000; 
+        }
+
+        .chatbot-container {               
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            width: 300px;
+            background: white;
+            border: 2px solid var(--primary-color);
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .chat-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+
+        .chat-messages {
+            height: 150px;
+            padding: 10px;
+            background-color: #fafafa;
+            overflow-y: auto;
+            font-size: 0.9rem;
+        }
+
+        .chat-input-area {
+            display: flex;
+            border-top: 1px solid #ddd;
+        }
+
+        .chat-input-area input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            outline: none;
+        }
+
+        .chat-input-area button {
+            background-color: var(--secondary-color);
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        footer {
+            background-color: #222;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            font-size: 0.8rem;
+        }
+
+        footer a {                            
+            color: white;
+            text-decoration: none; 
+        }
+
+        footer a:hover {
+            color: var(--secondary-color);
+            text-decoration: underline;
+        }
+
+        
+        @media (max-width: 600px) {         
+                header h1 {
+                font-size: 1.8rem;
+            }
+
+         .tracking-box input[type="text"] {
+                width: 100%;
+                box-sizing: border-box;
+            }
+            .chatbot-container {
+                width: calc(100% - 40px);
+                bottom: 80px;
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>        
+        <img src="logo-limited-gmbh.png" alt="Limited GmbH Logo" width="600" loading="lazy">
+    </header>
+
+    <main>          
+        <section class="hero">              
+            <h2>Logistik-Intelligenz der nächsten Generation</h2>
+            <p>Logistik am Limit des Machbaren. Reduzieren Sie Wartezeiten und Fehlbestände durch automatisierte Liefermodelle.</p>
+        </section>
+
+        <section class="tracking-box">
+            <h3>Paketstatus abfragen</h3>
+            <input type="text" placeholder="Sendungsnummer eingeben (z.B. LIM-123456)">
+            <button onclick="alert('Datenbank-Anbindung folgt durch unseren Daten-Spezial-Entwickler!')">Suchen</button>   
+        </section>
+    </main>
+
+
+
+    <button class="chat-toggle-btn" onclick="toggleChat()">💬 Chat</button>
+
+       
+    <div class="chatbot-container">                 
+        <div class="chat-header">
+        Support Chatbot</div>
+        <div class="chat-messages">
+            <p><strong>Bot:</strong> Hallo! Brauchst du Hilfe bei deiner Lieferung?</p>
+        </div>
+        <div class="chat-input-area">
+            <input type="text" placeholder="Schreibe eine Nachricht...">                    
+            <button onclick="alert('Chatbot-Logik wird vom All-round-Entwickler implementiert!')">Senden</button>
+        </div>
+    </div>
+
+    <footer>                
+        <p>&copy; 2026 Limited Gmbh | 
+        <a href="https://www.linkedin.com" target="_blank">LinkedIn</a> | 
+        <a href="https://www.facebook.com/stevejobsfilm/?locale=de_DE" target="_blank">Facebook</a> | 
+        <a href="https://www.instagram.com/stevejobsok/" target="_blank">Instagram</a> | 
+        <a href="mailto:simon.robin.hoedl@tha.de">E-Mail</a>
+    </p>
+    </footer>
+
+    <script>
+        function toggleChat() {
+            var chat = document.querySelector('.chatbot-container');
+                if (chat.style.display === 'none' || chat.style.display === '') {
+                chat.style.display = 'flex';
+            } else {
+                chat.style.display = 'none'; 
+            }
+        }
+    </script>
+
+</body>
+</html>
